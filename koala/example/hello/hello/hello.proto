@@ -1,0 +1,20 @@
+syntax = "proto3";
+option go_package="./;hello";
+package hello;
+
+
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloResponse {
+    string reply = 1;
+}
+
+//定义一个服务, 通过service来指定服务
+service HelloService{
+    //服务里可以定义方法, 也可以理解为服务里的接口
+    //rpc方法, sayHello是方法名
+    rpc SayHello(HelloRequest) returns (HelloResponse){}
+}
